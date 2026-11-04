@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg
+*.egg-info/
+.env
+venv/
+.venv/
+env/
+
+# Data files (too large for GitHub — use Kaggle dataset links in README)
+*.csv
+*.json.gz
+*.zip
+*.tar
+*.tar.gz
+
+# Model weights (too large — reference Kaggle datasets in README)
+*.pth
+*.pt
+*.h5
+*.keras
+*.pkl
+*.onnx
+*.pb
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp

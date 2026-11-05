@@ -1,0 +1,12 @@
+# Core Dependencies actually used by Agentic AI Backend & Frontend
+fastapi
+uvicorn
+streamlit
+llama-index
+openai
+loguru
+python-dotenv
+PyYAML
+google-generativeai
+llama-index-llms-gemini
+llama-index-embeddings-gemini

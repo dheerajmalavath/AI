@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TripMate AI — Multi-Agent Travel Intelligence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <!-- Clean Ambient Background -->
+  <div class="page-bg">
+    <div class="bg-mesh"></div>
+    <div class="bg-glow-top"></div>
+    <div class="bg-grid"></div>
+  </div>
+
+  <main class="app-container">
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="badge">
+        <span class="badge-dot"></span>
+        <span>TripMate AI — LangGraph, MCP, Supervisor & Human-in-the-Loop</span>
+      </div>
+      <h1>Plan Your Perfect Trip with AI</h1>
+      <p>
+        Autonomous multi-agent intelligence for flights, hotels, real-time weather,
+        and budgeting. Review and customize the draft itinerary before finalizing.
+      </p>
+    </section>
+
+    <!-- Planner Input Card -->
+    <section class="planner-card">
+      <div class="card-header">
+        <div>
+          <h2>Where do you want to go?</h2>
+          <p>Describe your dream trip, destination, duration, budget, or travel style.</p>
+        </div>
+        <div class="status-pill">
+          <span class="status-dot"></span>
+          <span>System Online</span>
+        </div>
+      </div>
+
+      <div class="input-area">
+        <div class="textarea-wrapper">
+          <textarea
+            id="userInput"
+            placeholder="Plan a complete 7 days Japan trip from Bangladesh including flights, hotels and sightseeing under 2 lakhs..."
+          ></textarea>
+          <div class="textarea-footer">
+            <span class="shortcut-hint">Tip: Press <kbd>Ctrl</kbd> + <kbd>Enter</kbd> to generate</span>
+          </div>
+        </div>
+        <button id="sendBtn" onclick="sendMessage()">
+          <span id="btnText">Generate Draft</span>
+          <span id="btnLoader" class="loader hidden"></span>
+        </button>
+      </div>
+
+      <!-- Quick Prompt Pills -->
+      <div class="quick-prompts">
+        <button onclick="setPrompt('Plan a complete 7 days Japan trip from Bangladesh including flights, hotels and sightseeing under 2 lakhs.')">
+          🌸 Japan Odyssey
+        </button>
+        <button onclick="setPrompt('Plan a 5 days Dubai trip from Dhaka with flights, hotels and sightseeing.')">
+          ✨ Dubai Luxury
+        </button>
+        <button onclick="setPrompt('Plan a 7 days Thailand trip from Bangladesh with budget hotels and sightseeing.')">
+          🏝️ Thailand Explorer
+        </button>
+        <button onclick="setPrompt('Find popular international flight routes and budget tips from Dhaka to major Asian & European destinations.')">
+          🌐 Global Flights
+        </button>
+      </div>
+    </section>
+
+    <!-- Supervisor Execution Workflow Section -->
+    <section id="workflowSection" class="workflow-section hidden">
+      <div class="workflow-header">
+        <div>
+          <span class="eyebrow">Supervisor Orchestration</span>
+          <h2>Execution Plan & Routing</h2>
+        </div>
+        <span id="guardrailBadge" class="guardrail-badge">Guardrail passed</span>
+      </div>
+      <p id="supervisorReasoning" class="supervisor-reasoning"></p>
+      <div id="agentChips" class="agent-chips"></div>
+    </section>
+
+    <!-- Result Section with Enhanced Tables & Alignment -->
+    <section id="resultSection" class="result-section hidden">
+      <div class="result-header">
+        <div class="result-header-left">
+          <div class="result-meta-row">
+            <span id="planStatusBadge" class="status-badge draft">Draft Itinerary</span>
+            <span id="threadInfo" class="thread-info">Thread ID: -</span>
+          </div>
+          <h2 id="resultTitle">Your AI Travel Plan</h2>
+        </div>
+        <div class="result-actions">
+          <button id="viewToggleBtn" class="action-btn toggle-btn" onclick="toggleResultTheme()" title="Switch between Document & Dark view">
+            <span class="btn-icon">🌙</span>
+            <span id="toggleBtnText">Dark View</span>
+          </button>
+          <button class="action-btn copy-btn" onclick="copyResult()" title="Copy entire plan to clipboard">
+            <span class="btn-icon">📋</span>
+            <span>Copy</span>
+          </button>
+          <button class="action-btn download-btn" onclick="downloadPDF()" title="Export travel guide as PDF">
+            <span class="btn-icon">📥</span>
+            <span>Download PDF</span>
+          </button>
+        </div>
+      </div>
+
+      <div id="pdfContent" class="pdf-content">
+        <!-- Structured Snapshot Table -->
+        <div id="tripSnapshot" class="trip-snapshot hidden">
+          <div class="snapshot-header">
+            <span class="snapshot-title">✈️ Trip Overview & Metrics</span>
+          </div>
+          <div class="table-wrapper snapshot-wrapper">
+            <table class="snapshot-table">
+              <tbody>
+                <tr>
+                  <th scope="row">🎯 Destination</th>
+                  <td id="snapDestination">-</td>
+                  <th scope="row">⏱️ Duration</th>
+                  <td id="snapDuration">-</td>
+                </tr>
+                <tr>
+                  <th scope="row">💰 Budget Target</th>
+                  <td id="snapBudget">-</td>
+                  <th scope="row">🛫 Origin / Departure</th>
+                  <td id="snapOrigin">-</td>
+                </tr>
+                <tr>
+                  <th scope="row">🤖 Consulted Specialists</th>
+                  <td id="snapAgents" colspan="3">-</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <h1 class="pdf-title">AI Travel Plan</h1>
+        <div id="resultBox" class="result-box"></div>
+      </div>
+    </section>
+
+    <!-- Human-in-the-Loop Approval Section -->
+    <section id="approvalSection" class="approval-section hidden">
+      <div class="approval-icon">👤</div>
+      <div class="approval-content">
+        <span class="eyebrow">Human-in-the-Loop Review</span>
+        <h2>Review & Refine Draft Plan</h2>
+        <p id="approvalRequest">
+          Review the draft above. Approve to generate the final itinerary or submit revision feedback.
+        </p>
+
+        <textarea
+          id="approvalFeedback"
+          class="feedback-input"
+          placeholder="Add revision feedback (e.g. reduce hotel budget, allocate extra free time on Day 3, focus on culinary highlights)..."
+        ></textarea>
+
+        <div class="approval-actions">
+          <button id="approveBtn" class="approve-btn" onclick="submitApproval(true)">
+            <span>✓ Approve & Finalize</span>
+          </button>
+          <button id="reviseBtn" class="revise-btn" onclick="submitApproval(false)">
+            <span>↺ Revise with Feedback</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Error Alert Box -->
+    <section id="errorBox" class="error-box hidden"></section>
+  </main>
+
+  <footer>
+    TripMate AI • Multi-Agent Travel Planner • Powered by LangGraph, Groq, Neon PostgreSQL, Tavily & AviationStack MCP
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <script src="/static/script.js"></script>
+</body>
+</html>

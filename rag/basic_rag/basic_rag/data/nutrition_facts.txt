@@ -1,0 +1,103 @@
+Bananas contain potassium which helps regulate blood pressure.
+Bananas provide quick energy due to their natural carbohydrate content.
+Apples are rich in dietary fiber which supports digestion.
+Apples contain antioxidants that help protect cells from damage.
+Oranges are an excellent source of vitamin C.
+Oranges help support immune system function.
+Mangoes contain vitamin A which supports eye health.
+Mangoes provide antioxidants such as beta-carotene.
+Papayas contain papain, an enzyme that aids digestion.
+Papayas are rich in vitamin C and folate.
+Watermelon contains high water content that supports hydration.
+Watermelon contains lycopene, an antioxidant linked to heart health.
+Pineapples contain bromelain which may aid digestion.
+Pineapples are a good source of manganese.
+Strawberries are rich in vitamin C and antioxidants.
+Strawberries contain fiber that supports digestive health.
+Grapes contain polyphenols which may support heart health.
+Grapes provide natural sugars for quick energy.
+Blueberries are rich in anthocyanins which act as antioxidants.
+Blueberries may support cognitive health.
+
+Spinach contains iron which helps transport oxygen in the blood.
+Spinach is rich in vitamin K which supports bone health.
+Broccoli contains fiber and vitamin C.
+Broccoli provides compounds that may support cellular health.
+Carrots are rich in beta-carotene which converts to vitamin A.
+Carrots support healthy vision and immune function.
+Tomatoes contain lycopene which acts as an antioxidant.
+Tomatoes provide vitamin C and potassium.
+Cabbage is low in calories and rich in fiber.
+Cabbage contains vitamin K and vitamin C.
+Bell peppers contain high levels of vitamin C.
+Bell peppers provide antioxidants that support immunity.
+Cauliflower contains fiber and several essential vitamins.
+Cauliflower is low in calories and nutrient-dense.
+Sweet potatoes provide complex carbohydrates and fiber.
+Sweet potatoes are rich in vitamin A.
+Beetroot contains nitrates that may improve blood flow.
+Beetroot is a source of folate and manganese.
+Onions contain antioxidants and plant compounds.
+Onions may support cardiovascular health.
+
+Brown rice provides complex carbohydrates for sustained energy.
+Brown rice contains more fiber than white rice.
+Oats contain beta-glucan which may help reduce cholesterol.
+Oats provide long-lasting energy and fiber.
+Whole wheat contains B vitamins and dietary fiber.
+Whole wheat products support digestive health.
+Quinoa contains all nine essential amino acids.
+Quinoa is a complete plant-based protein source.
+Millets are rich in fiber and minerals.
+Millets may help maintain healthy blood sugar levels.
+Barley contains soluble fiber called beta-glucan.
+Barley may support heart health and digestion.
+
+Lentils are rich in plant protein and fiber.
+Lentils provide iron and folate.
+Chickpeas contain protein and complex carbohydrates.
+Chickpeas may help improve satiety and fullness.
+Kidney beans are rich in fiber and protein.
+Kidney beans provide important minerals like magnesium.
+Black beans contain antioxidants and dietary fiber.
+Black beans support digestive and heart health.
+Soybeans are a complete plant protein source.
+Soybeans contain beneficial compounds called isoflavones.
+
+Milk provides calcium for strong bones and teeth.
+Milk contains protein important for muscle maintenance.
+Yogurt contains probiotics that support gut health.
+Yogurt is a good source of calcium and protein.
+Cheese provides calcium and protein.
+Cheese should be consumed in moderation due to sodium content.
+Paneer is rich in protein and calcium.
+Paneer supports muscle growth and repair.
+Curd contains beneficial bacteria that support digestion.
+Curd is a nutritious dairy food rich in protein.
+
+Eggs provide high-quality protein and essential nutrients.
+Eggs contain choline which supports brain health.
+Chicken breast is a lean source of protein.
+Chicken breast contains essential amino acids.
+Fish provides high-quality protein and healthy fats.
+Fatty fish contain omega-3 fatty acids.
+Salmon is rich in omega-3 fats and vitamin D.
+Salmon may support heart and brain health.
+Tuna provides protein and important minerals.
+Tuna is commonly included in high-protein diets.
+
+Almonds contain healthy fats and vitamin E.
+Almonds provide magnesium and dietary fiber.
+Walnuts are rich in omega-3 fatty acids.
+Walnuts may support heart and brain health.
+Cashews contain healthy fats and minerals.
+Cashews provide magnesium and copper.
+Chia seeds are rich in fiber and omega-3 fats.
+Chia seeds absorb water and promote fullness.
+Flaxseeds contain lignans and omega-3 fatty acids.
+Flaxseeds may support digestive and heart health.
+
+Water is essential for all metabolic processes.
+Adequate hydration supports physical and cognitive performance.
+A balanced diet should include fruits, vegetables, proteins, and whole grains.
+Consuming a variety of foods helps ensure adequate nutrient intake.

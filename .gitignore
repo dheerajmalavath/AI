@@ -5,18 +5,23 @@ __pycache__/
 *.egg
 *.egg-info/
 .env
+*.env
 venv/
 .venv/
 env/
 
-# Data files (too large for GitHub — use Kaggle dataset links in README)
+# Large binaries, archives & DBs
 *.csv
 *.json.gz
 *.zip
 *.tar
 *.tar.gz
+*.sqlite
+*.sqlite3
+*.db
+*.log
 
-# Model weights (too large — reference Kaggle datasets in README)
+# Model weights
 *.pth
 *.pt
 *.h5

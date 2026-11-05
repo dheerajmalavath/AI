@@ -1,0 +1,1160 @@
+/* ============================================================
+   TripMate AI — Modern, Clean, Aesthetic Design System
+   ============================================================ */
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-primary: #080d1a;
+  --bg-card: rgba(15, 23, 42, 0.75);
+  --bg-card-hover: rgba(30, 41, 59, 0.7);
+  --bg-input: rgba(2, 6, 23, 0.65);
+  
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-focus: rgba(59, 130, 246, 0.65);
+  --border-highlight: rgba(99, 102, 241, 0.3);
+
+  --text-primary: #ffffff;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --text-dim: #64748b;
+
+  --accent-blue: #3b82f6;
+  --accent-indigo: #6366f1;
+  --accent-emerald: #10b981;
+  --accent-amber: #f59e0b;
+  --accent-rose: #f43f5e;
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 24px;
+  --radius-full: 999px;
+
+  --shadow-card: 0 20px 50px -15px rgba(0, 0, 0, 0.5), inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
+}
+
+body {
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ============================================================
+   Clean Ambient Background (No Distracting Blurry Blobs)
+   ============================================================ */
+.page-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-color: #080d1a;
+  overflow: hidden;
+}
+
+.bg-mesh {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 90% 60% at 50% -15%, rgba(59, 130, 246, 0.14), transparent 70%),
+    radial-gradient(ellipse 60% 40% at 85% 25%, rgba(99, 102, 241, 0.09), transparent 60%),
+    radial-gradient(ellipse 50% 50% at 15% 75%, rgba(14, 165, 233, 0.06), transparent 60%);
+}
+
+.bg-glow-top {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1000px;
+  height: 380px;
+  background: radial-gradient(ellipse at top, rgba(96, 165, 250, 0.12), transparent 70%);
+  filter: blur(40px);
+}
+
+.bg-grid {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 28px 28px;
+  background-position: 0 0;
+}
+
+/* ============================================================
+   Layout Container
+   ============================================================ */
+.app-container {
+  width: min(1140px, calc(100% - 36px));
+  margin: 0 auto;
+  padding: 56px 0 40px;
+}
+
+/* ============================================================
+   Hero Section
+   ============================================================ */
+.hero-section {
+  text-align: center;
+  margin-bottom: 38px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-full);
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(14px);
+  color: #cbd5e1;
+  font-size: 0.86rem;
+  font-weight: 500;
+  margin-bottom: 22px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #38bdf8;
+  box-shadow: 0 0 10px #38bdf8;
+}
+
+.hero-section h1 {
+  font-size: clamp(2.3rem, 5.5vw, 4.2rem);
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+  font-weight: 800;
+  margin-bottom: 16px;
+  background: linear-gradient(180deg, #ffffff 10%, #e2e8f0 60%, #94a3b8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-section p {
+  max-width: 720px;
+  margin: 0 auto;
+  color: var(--text-muted);
+  font-size: 1.08rem;
+  line-height: 1.7;
+}
+
+/* ============================================================
+   Core Card Glassmorphism
+   ============================================================ */
+.planner-card,
+.workflow-section,
+.result-section,
+.approval-section {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-card);
+  backdrop-filter: blur(24px);
+  border-radius: var(--radius-xl);
+  padding: 30px;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.workflow-section,
+.result-section,
+.approval-section {
+  margin-top: 26px;
+}
+
+.card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 22px;
+}
+
+.card-header h2 {
+  font-size: 1.45rem;
+  font-weight: 750;
+  letter-spacing: -0.02em;
+  margin-bottom: 6px;
+}
+
+.card-header p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(16, 185, 129, 0.1);
+  color: #6ee7b7;
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  padding: 7px 14px;
+  border-radius: var(--radius-full);
+  font-weight: 650;
+  font-size: 0.82rem;
+  white-space: nowrap;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent-emerald);
+  box-shadow: 0 0 12px var(--accent-emerald);
+}
+
+/* ============================================================
+   Input Area & Buttons
+   ============================================================ */
+.input-area {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+  align-items: stretch;
+}
+
+.textarea-wrapper {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+textarea {
+  width: 100%;
+  min-height: 145px;
+  resize: vertical;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  background: var(--bg-input);
+  color: var(--text-primary);
+  padding: 20px;
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1.6;
+  outline: none;
+  transition: all 0.25s ease;
+}
+
+textarea:focus {
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.14);
+  background: rgba(2, 6, 23, 0.8);
+}
+
+textarea::placeholder {
+  color: var(--text-dim);
+}
+
+.textarea-footer {
+  margin-top: 8px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.shortcut-hint {
+  font-size: 0.8rem;
+  color: var(--text-dim);
+}
+
+.shortcut-hint kbd {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+  padding: 2px 5px;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+#sendBtn {
+  min-width: 175px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-lg);
+  padding: 0 26px;
+  background: linear-gradient(135deg, #2563eb, #4f46e5);
+  color: #ffffff;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 14px 30px -5px rgba(37, 99, 235, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#sendBtn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 36px -5px rgba(79, 70, 229, 0.45);
+}
+
+#sendBtn:disabled,
+.approve-btn:disabled,
+.revise-btn:disabled,
+.action-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Quick Prompt Pills */
+.quick-prompts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.quick-prompts button {
+  border: 1px solid var(--border-subtle);
+  background: rgba(30, 41, 59, 0.55);
+  color: #cbd5e1;
+  border-radius: var(--radius-full);
+  padding: 9px 16px;
+  font-family: inherit;
+  font-size: 0.88rem;
+  font-weight: 550;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.quick-prompts button:hover {
+  background: rgba(59, 130, 246, 0.15);
+  border-color: rgba(96, 165, 250, 0.4);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+/* ============================================================
+   Workflow Orchestration Section
+   ============================================================ */
+.eyebrow {
+  display: inline-block;
+  margin-bottom: 6px;
+  color: #60a5fa;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.workflow-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+.workflow-header h2 {
+  font-size: 1.35rem;
+  font-weight: 750;
+}
+
+.guardrail-badge {
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  background: rgba(16, 185, 129, 0.1);
+  color: #6ee7b7;
+  padding: 8px 14px;
+  border-radius: var(--radius-full);
+  font-size: 0.82rem;
+  font-weight: 750;
+  white-space: nowrap;
+}
+
+.guardrail-badge.blocked {
+  border-color: rgba(244, 63, 94, 0.35);
+  background: rgba(244, 63, 94, 0.12);
+  color: #fda4af;
+}
+
+.supervisor-reasoning {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 18px;
+  font-size: 0.96rem;
+  padding: 14px 18px;
+  background: rgba(2, 6, 23, 0.4);
+  border-left: 3px solid #3b82f6;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+.agent-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.agent-chip {
+  padding: 9px 15px;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(96, 165, 250, 0.25);
+  background: rgba(37, 99, 235, 0.1);
+  color: #dbeafe;
+  font-size: 0.88rem;
+  font-weight: 650;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ============================================================
+   Result Section (Clean Alignment, Dark Mode + Paper View)
+   ============================================================ */
+.result-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 22px;
+  flex-wrap: wrap;
+}
+
+.result-header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.result-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.status-badge.draft {
+  background: rgba(245, 158, 11, 0.15);
+  color: #fcd34d;
+  border: 1px solid rgba(245, 158, 11, 0.35);
+}
+
+.status-badge.final {
+  background: rgba(16, 185, 129, 0.15);
+  color: #6ee7b7;
+  border: 1px solid rgba(16, 185, 129, 0.35);
+}
+
+.thread-info {
+  color: var(--text-dim);
+  font-size: 0.82rem;
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+}
+
+#resultTitle {
+  font-size: 1.45rem;
+  font-weight: 750;
+  letter-spacing: -0.02em;
+}
+
+.result-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.action-btn {
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 9px 16px;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 650;
+  font-size: 0.88rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.btn-icon {
+  font-size: 1rem;
+}
+
+.toggle-btn {
+  background: rgba(30, 41, 59, 0.7);
+  color: #cbd5e1;
+}
+
+.toggle-btn:hover {
+  background: rgba(59, 130, 246, 0.2);
+  border-color: rgba(96, 165, 250, 0.4);
+  color: #ffffff;
+}
+
+.copy-btn {
+  background: rgba(15, 23, 42, 0.85);
+  color: #ffffff;
+}
+
+.copy-btn:hover {
+  background: rgba(59, 130, 246, 0.22);
+  border-color: rgba(96, 165, 250, 0.5);
+}
+
+.download-btn {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 20px -3px rgba(16, 185, 129, 0.35);
+}
+
+.download-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 26px -3px rgba(16, 185, 129, 0.45);
+}
+
+/* ============================================================
+   Document Container (.pdf-content)
+   Default: Sleek cohesive dark mode matching the app
+   Paper Mode: Crisp executive white sheet for printing / export
+   ============================================================ */
+/* ============================================================
+   Document Container (.pdf-content)
+   Default: Exact Executive Document Style matching ai-travel-plan.pdf
+   ============================================================ */
+.pdf-content {
+  background: #ffffff;
+  color: #0f172a;
+  border-radius: var(--radius-lg);
+  padding: 40px 46px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 16px 50px rgba(0, 0, 0, 0.45);
+  transition: all 0.25s ease;
+}
+
+.pdf-title {
+  display: none;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+/* ============================================================
+   Structured Trip Snapshot Table (Key Facts & Metrics)
+   ============================================================ */
+.trip-snapshot {
+  margin-bottom: 28px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.snapshot-header {
+  margin-bottom: 12px;
+}
+
+.snapshot-title {
+  font-size: 0.84rem;
+  font-weight: 750;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #1d4ed8;
+}
+
+.snapshot-wrapper {
+  margin: 0 !important;
+  background: #ffffff !important;
+  border-color: #cbd5e1 !important;
+}
+
+.snapshot-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.snapshot-table th {
+  background: #eff6ff;
+  color: #0f172a;
+  font-weight: 700;
+  font-size: 0.84rem;
+  padding: 10px 14px;
+  border: 1px solid #cbd5e1;
+  width: 18%;
+  white-space: nowrap;
+}
+
+.snapshot-table td {
+  background: #ffffff;
+  color: #1e293b;
+  font-weight: 500;
+  padding: 10px 14px;
+  border: 1px solid #e2e8f0;
+  width: 32%;
+}
+
+/* ============================================================
+   Result Box Markdown Typography — Exact ai-travel-plan.pdf Layout
+   ============================================================ */
+.result-box {
+  background: transparent;
+  color: #1e293b;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  overflow-wrap: break-word;
+}
+
+/* Document Title Banner (matching ai-travel-plan.pdf page 1) */
+.result-box h1 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #0f172a;
+  background: #eff6ff;
+  border-left: 5px solid #2563eb;
+  border-radius: 8px;
+  padding: 12px 18px;
+  margin: 0 0 16px 0;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+}
+
+/* Metadata Bar: Origin, Destination, Travel Style, Total Cost */
+.result-box > p:first-of-type {
+  font-size: 0.94rem;
+  line-height: 1.75;
+  color: #334155;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 12px 18px;
+  margin-bottom: 24px;
+}
+
+.result-box > p:first-of-type strong {
+  color: #0f172a;
+}
+
+/* Section Banners (QUICK-LOOK OVERVIEW, DETAILED DAY-BY-DAY PLAN) */
+.result-box h2 {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #0f172a;
+  background: #eff6ff;
+  border-left: 5px solid #2563eb;
+  border-radius: 8px;
+  padding: 10px 16px;
+  margin-top: 32px;
+  margin-bottom: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  display: block;
+}
+
+/* Day Subheadings: DAY 1 – ..., DAY 2 – ... */
+.result-box h3 {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #1d4ed8;
+  margin-top: 26px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.result-box p {
+  margin-bottom: 14px;
+  color: #334155;
+}
+
+.result-box ul,
+.result-box ol {
+  margin: 10px 0 18px 24px;
+  color: #334155;
+}
+
+.result-box li {
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+
+.result-box strong {
+  color: #0f172a;
+  font-weight: 700;
+}
+
+.result-box hr {
+  border: none;
+  border-top: 1px solid #e2e8f0;
+  margin: 28px 0;
+}
+
+.result-box blockquote {
+  border-left: 4px solid #2563eb;
+  padding: 12px 18px;
+  background: #eff6ff;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  margin: 18px 0;
+  color: #1e293b;
+}
+
+.result-box code {
+  background: #f1f5f9;
+  padding: 2px 7px;
+  border-radius: 6px;
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 0.88em;
+  color: #0f172a;
+}
+
+/* ============================================================
+   Tables — Exact ai-travel-plan.pdf Grid Formatting
+   ============================================================ */
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  margin: 12px 0 16px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+  -webkit-overflow-scrolling: touch;
+}
+
+.result-box table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  text-align: left;
+}
+
+.result-box th {
+  background: #eff6ff;
+  color: #0f172a;
+  font-weight: 700;
+  font-size: 0.84rem;
+  padding: 10px 14px;
+  border: 1px solid #cbd5e1;
+  white-space: nowrap;
+}
+
+.result-box td {
+  padding: 10px 14px;
+  border: 1px solid #e2e8f0;
+  color: #1e293b;
+  vertical-align: top;
+  line-height: 1.5;
+}
+
+.result-box tbody td:first-child {
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.result-box tbody tr:hover {
+  background: #f8fafc;
+}
+
+/* Number / Currency alignment */
+td.col-num, th.col-num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+}
+
+td.col-center, th.col-center {
+  text-align: center;
+}
+
+/* Day total highlight lines */
+.result-box p:has(strong) {
+  margin-top: 10px;
+  margin-bottom: 22px;
+}
+
+/* ============================================================
+   Optional Dark View (.dark-view)
+   ============================================================ */
+.pdf-content.dark-view {
+  background: rgba(11, 18, 33, 0.95);
+  color: #f1f5f9;
+  border-color: var(--border-subtle);
+  box-shadow: 0 16px 50px rgba(0, 0, 0, 0.6);
+}
+
+.pdf-content.dark-view .result-box {
+  color: #cbd5e1;
+}
+
+.pdf-content.dark-view .result-box h1 {
+  background: rgba(59, 130, 246, 0.15);
+  color: #ffffff;
+  border-left-color: #3b82f6;
+}
+
+.pdf-content.dark-view .result-box > p:first-of-type {
+  background: rgba(15, 23, 42, 0.6);
+  border-color: rgba(255, 255, 255, 0.08);
+  color: #cbd5e1;
+}
+
+.pdf-content.dark-view .result-box > p:first-of-type strong {
+  color: #ffffff;
+}
+
+.pdf-content.dark-view .result-box h2 {
+  background: rgba(59, 130, 246, 0.15);
+  color: #ffffff;
+  border-left-color: #3b82f6;
+}
+
+.pdf-content.dark-view .result-box h3 {
+  color: #93c5fd;
+}
+
+.pdf-content.dark-view .result-box p,
+.pdf-content.dark-view .result-box li {
+  color: #cbd5e1;
+}
+
+.pdf-content.dark-view .result-box strong {
+  color: #ffffff;
+}
+
+.pdf-content.dark-view .table-wrapper {
+  background: rgba(8, 13, 26, 0.7);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.pdf-content.dark-view .result-box th {
+  background: rgba(30, 41, 59, 0.85);
+  color: #93c5fd;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.pdf-content.dark-view .result-box td {
+  color: #cbd5e1;
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
+.pdf-content.dark-view .result-box tbody td:first-child {
+  color: #f1f5f9;
+}
+
+.pdf-content.dark-view .result-box tbody tr:hover {
+  background: rgba(59, 130, 246, 0.08);
+}
+
+.pdf-content.dark-view .snapshot-title {
+  color: #60a5fa;
+}
+
+.pdf-content.dark-view .snapshot-wrapper {
+  background: rgba(8, 13, 26, 0.7) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.pdf-content.dark-view .snapshot-table th {
+  background: rgba(30, 41, 59, 0.8);
+  color: #93c5fd;
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.pdf-content.dark-view .snapshot-table td {
+  background: rgba(15, 23, 42, 0.5);
+  color: #f1f5f9;
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.pdf-content.paper-mode .result-box th,
+.pdf-content.pdf-export-mode .result-box th {
+  background: #f1f5f9 !important;
+  color: #1e293b !important;
+  border-bottom-color: #cbd5e1 !important;
+  border-right-color: #e2e8f0 !important;
+}
+
+.pdf-content.paper-mode .result-box td,
+.pdf-content.pdf-export-mode .result-box td {
+  color: #334155 !important;
+  border-bottom-color: #f1f5f9 !important;
+  border-right-color: #f1f5f9 !important;
+}
+
+.pdf-content.paper-mode .result-box tbody tr:nth-child(even),
+.pdf-content.pdf-export-mode .result-box tbody tr:nth-child(even) {
+  background: #f8fafc !important;
+}
+
+.pdf-content.paper-mode .result-box tbody tr:hover,
+.pdf-content.pdf-export-mode .result-box tbody tr:hover {
+  background: #f1f5f9 !important;
+}
+
+.pdf-content.paper-mode .result-box tbody td:first-child,
+.pdf-content.pdf-export-mode .result-box tbody td:first-child {
+  color: #0f172a !important;
+}
+
+.pdf-content.paper-mode .snapshot-title,
+.pdf-content.pdf-export-mode .snapshot-title {
+  color: #1d4ed8 !important;
+}
+
+.pdf-content.paper-mode .snapshot-table th,
+.pdf-content.pdf-export-mode .snapshot-table th {
+  background: #f1f5f9 !important;
+  color: #334155 !important;
+  border-color: #e2e8f0 !important;
+}
+
+.pdf-content.paper-mode .snapshot-table td,
+.pdf-content.pdf-export-mode .snapshot-table td {
+  background: #ffffff !important;
+  color: #0f172a !important;
+  border-color: #e2e8f0 !important;
+}
+
+/* ============================================================
+   Human-in-the-Loop Review Section
+   ============================================================ */
+.approval-section {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 22px;
+  border-color: rgba(245, 158, 11, 0.35);
+  background: linear-gradient(
+    135deg,
+    rgba(120, 53, 15, 0.2),
+    rgba(15, 23, 42, 0.85)
+  );
+}
+
+.approval-icon {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-md);
+  background: rgba(245, 158, 11, 0.15);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  font-size: 1.6rem;
+}
+
+.approval-content h2 {
+  font-size: 1.4rem;
+  font-weight: 750;
+  margin-bottom: 6px;
+}
+
+.approval-content p {
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.feedback-input {
+  min-height: 105px;
+  margin-top: 18px;
+  border-radius: var(--radius-md);
+}
+
+.approval-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.approve-btn,
+.revise-btn {
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-md);
+  padding: 12px 22px;
+  color: #ffffff;
+  font-family: inherit;
+  font-weight: 750;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.approve-btn {
+  background: linear-gradient(135deg, #10b981, #059669);
+  box-shadow: 0 10px 24px -4px rgba(16, 185, 129, 0.35);
+}
+
+.revise-btn {
+  background: linear-gradient(135deg, #d97706, #f59e0b);
+  box-shadow: 0 10px 24px -4px rgba(245, 158, 11, 0.3);
+}
+
+.approve-btn:hover:not(:disabled),
+.revise-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+/* ============================================================
+   Error Box & Helpers
+   ============================================================ */
+.error-box {
+  margin-top: 24px;
+  padding: 18px 22px;
+  border-radius: var(--radius-lg);
+  background: rgba(244, 63, 94, 0.12);
+  border: 1px solid rgba(244, 63, 94, 0.35);
+  color: #fda4af;
+  line-height: 1.55;
+  font-size: 0.95rem;
+}
+
+.loader {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border: 3px solid rgba(255, 255, 255, 0.35);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: spin 0.85s linear infinite;
+}
+
+.hidden {
+  display: none !important;
+}
+
+footer {
+  text-align: center;
+  color: var(--text-dim);
+  padding: 40px 16px 50px;
+  font-size: 0.9rem;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ============================================================
+   Print & PDF Media Styles
+   ============================================================ */
+@media print {
+  body {
+    background: #ffffff;
+  }
+
+  .planner-card,
+  .workflow-section,
+  .approval-section,
+  .hero-section,
+  footer,
+  .result-actions,
+  .result-meta-row {
+    display: none !important;
+  }
+
+  .result-section {
+    box-shadow: none;
+    border: none;
+    background: #ffffff;
+    padding: 0;
+  }
+
+  .pdf-content {
+    background: #ffffff !important;
+    color: #0f172a !important;
+    border: none !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+  }
+
+  .pdf-title {
+    display: block;
+    color: #0f172a;
+  }
+}
+
+/* ============================================================
+   Responsive Breakpoints (Mobile & Tablet)
+   ============================================================ */
+@media (max-width: 820px) {
+  .app-container {
+    padding-top: 36px;
+    width: min(100% - 24px);
+  }
+
+  .planner-card,
+  .workflow-section,
+  .result-section,
+  .approval-section {
+    padding: 22px;
+    border-radius: var(--radius-lg);
+  }
+
+  .card-header,
+  .result-header,
+  .workflow-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .input-area {
+    grid-template-columns: 1fr;
+  }
+
+  #sendBtn {
+    min-height: 52px;
+  }
+
+  .result-actions {
+    width: 100%;
+    justify-content: stretch;
+  }
+
+  .action-btn {
+    flex: 1;
+    justify-content: center;
+  }
+
+  .snapshot-table th,
+  .snapshot-table td {
+    display: block;
+    width: 100% !important;
+    border-right: none !important;
+  }
+
+  .snapshot-table th {
+    border-top: 1px solid var(--border-subtle);
+  }
+
+  .snapshot-table tr:first-child th:first-child {
+    border-top: none;
+  }
+
+  .approval-section {
+    grid-template-columns: 1fr;
+  }
+
+  .approval-actions {
+    width: 100%;
+  }
+
+  .approve-btn,
+  .revise-btn {
+    flex: 1;
+    justify-content: center;
+  }
+}

@@ -1,0 +1,19 @@
+# AGENTIC AI Nutrition & Food Database
+
+## Daily Caloric and Nutrient Guidelines
+- General reference intake: 2,000 calories per day for an average adult.
+- Macronutrient distributions:
+  - Carbohydrates: 45–65% of daily calories (mainly complex carbs like whole grains, vegetables).
+  - Proteins: 10–35% of daily calories (lean meats, poultry, fish, tofu, beans, lentils).
+  - Fats: 20–35% of daily calories (healthy unsaturated fats from avocados, nuts, seeds, olive oil).
+
+## Micronutrient and Hydration Basics
+- Water intake: Recommended 8-10 glasses (about 2 to 2.5 liters) per day, adjusting for climate and activity levels.
+- Sodium: Limit daily intake to under 2,300 mg to prevent hypertension and maintain cardiovascular health.
+- Fiber: Aim for 25-30g daily to support healthy digestion.
+
+## Superfoods and Benefits
+- Avocado: Rich in monounsaturated fats (heart-healthy oleic acid), fiber, and potassium.
+- Salmon: High in omega-3 fatty acids, which reduce inflammation and support brain health.
+- Blueberries: Packed with antioxidants (anthocyanins) that protect against oxidative stress.
+- Spinach: Loaded with iron, calcium, and vitamins A, C, and K.
